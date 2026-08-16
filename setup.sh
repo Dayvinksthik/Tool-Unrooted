@@ -16,7 +16,6 @@ then
 fi
 
 echo "Installing packages..."
-# No tsu/proot needed — unrooted build
 pkg install termux-tools git openssh procps -y
 
 echo "Installing Python libraries..."
