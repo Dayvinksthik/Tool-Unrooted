@@ -1,34 +1,42 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-echo "Updating and upgrading Termux..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "  Nexora | Unrooted Setup"
+echo "  discord.gg/dCMVzpBuTm"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+echo "[1/7] Updating Termux packages..."
 pkg update -y && pkg upgrade -y
 
-echo "Changing repositories..."
+echo "[2/7] Changing repositories..."
 termux-change-repo
 
-echo "Installing Python and pip..."
+echo "[3/7] Installing Python and pip..."
 pkg install python python-pip -y
 
-if ! command -v python &> /dev/null
-then
+if ! command -v python &> /dev/null; then
     echo "Error: Python not installed. Retrying..."
     pkg install python -y
 fi
 
-echo "Installing packages..."
-pkg install termux-tools git openssh procps -y
+echo "[4/7] Installing Termux tools..."
+pkg install termux-tools git openssh procps screen -y
 
-echo "Installing Python libraries..."
+echo "[5/7] Installing Python libraries..."
 pip install colorama pystyle requests
 
-echo "Setting up storage permissions..."
+echo "[6/7] Setting up storage permissions..."
 termux-setup-storage
 
-echo "Installing screen..."
-pkg install screen -y
-
-echo "Creating autoexec directories..."
-mkdir -p /storage/emulated/0/Delta/Autoexecute/
+echo "[7/7] Creating autoexec directories..."
+mkdir -p /storage/emulated/0/Delta/Autoexecute
+mkdir -p /storage/emulated/0/Delta/Workspace
 mkdir -p /storage/emulated/0/RobloxClone001/Codex/Autoexec/
 
-echo "Installation complete! -- Nexora | https://discord.gg/dCMVzpBuTm"
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "  Setup complete!"
+echo "  Run: python Rejoin.py"
+echo "  Nexora | discord.gg/dCMVzpBuTm"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
